@@ -7,7 +7,7 @@ const instance = axios.create({
 });
 
 export const fetchAllUsers = async (): Promise<IUser[]> => {
-  const {data} = await instance.get('/users');
+  const {data} = await instance.get('/userss');
 
   return data;
 };

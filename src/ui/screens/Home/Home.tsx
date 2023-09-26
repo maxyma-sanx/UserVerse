@@ -1,25 +1,32 @@
 import React, {FC, useEffect} from 'react';
-import {Text} from 'react-native';
+import {Text, Button} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
-import {useAppDispatch, useAppSelector} from '../../../redux/hooks';
+import {useAppDispatch} from '../../../redux/hooks';
 import {fetchUsers} from '../../../redux/users/operations';
-import {getUsers} from '../../../redux/users/selector';
 
 import {Container} from './Home.styled';
+import {NavigationProp} from '@/types/NavigationProp';
 
 const Home: FC = () => {
-  const users = useAppSelector(getUsers);
+  const navigation = useNavigation<NavigationProp>();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
 
-  console.log(users);
+  const handleUserClick = (userId: string) => {
+    navigation.navigate('User', {userId});
+  };
 
   return (
     <Container>
       <Text>Home</Text>
+      <Button
+        title="sодробнее о пользователе"
+        onPress={() => handleUserClick('1')}
+      />
     </Container>
   );
 };

@@ -1,12 +1,26 @@
 import React, {FC} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 
-import {Home} from '../ui';
+import {BottomMenu, HeaderMenu, Home, User} from '../ui';
+import {Stack} from '../utils';
 
 const Navigate: FC = () => {
   return (
     <NavigationContainer>
-      <Home />
+      <HeaderMenu />
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="User"
+          component={User}
+          options={{headerShown: false}}
+        />
+      </Stack.Navigator>
+      <BottomMenu />
     </NavigationContainer>
   );
 };
