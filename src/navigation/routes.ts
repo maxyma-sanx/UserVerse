@@ -1,4 +1,4 @@
-import {Home, Post, User} from '@/components';
+import {Home, Post, User} from '@/ui';
 
 export const routes = [
   {
