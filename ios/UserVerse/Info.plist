@@ -53,6 +53,7 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>FontAwesome.ttf</string>
 		<string>Karla-Bold.ttf</string>
 		<string>Karla-Regular.ttf</string>
 	</array>

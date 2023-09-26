@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {TouchableWithoutFeedback} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 
 import {Container, Logo} from './HeaderMenu.styled';
 import {NavigationProp} from '@/types/NavigationProp';
@@ -14,12 +14,12 @@ const HeaderMenu: FC = () => {
 
   return (
     <Container>
-      <TouchableWithoutFeedback onPress={handleLogoClick}>
+      <TouchableOpacity onPress={handleLogoClick}>
         <Logo
           source={require('../../../../assets/images/logo.png')}
           resizeMode="contain"
         />
-      </TouchableWithoutFeedback>
+      </TouchableOpacity>
     </Container>
   );
 };

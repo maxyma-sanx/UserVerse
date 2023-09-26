@@ -1,14 +1,30 @@
 import React, {FC, useEffect} from 'react';
-import {Text, Button} from 'react-native';
+import {Dimensions, FlatList} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
-import {useAppDispatch} from '../../../redux/hooks';
+import {useAppDispatch, useAppSelector} from '../../../redux/hooks';
 import {fetchUsers} from '../../../redux/users/operations';
 
-import {Container} from './Home.styled';
+import {
+  CardButton,
+  CardButtonText,
+  CardEmail,
+  CardIcon,
+  CardTitle,
+  CardWrapper,
+  Container,
+  Title,
+} from './Home.styled';
+
 import {NavigationProp} from '@/types/NavigationProp';
 
+import {getUsers} from '../../../redux/users/selector';
+import {CARD_MARGIN, NUM_COLUMNS} from '../../../constants';
+
 const Home: FC = () => {
+  const users = useAppSelector(getUsers);
+  // const loading = useAppSelector(getUsersLoading);
+  // const error = useAppSelector(getUsersError);
   const navigation = useNavigation<NavigationProp>();
   const dispatch = useAppDispatch();
 
@@ -20,12 +36,30 @@ const Home: FC = () => {
     navigation.navigate('User', {userId});
   };
 
+  const windowWidth = Dimensions.get('window').width;
+  const cardWidth = windowWidth / NUM_COLUMNS - 2 * CARD_MARGIN;
+
   return (
     <Container>
-      <Text>Home</Text>
-      <Button
-        title="sодробнее о пользователе"
-        onPress={() => handleUserClick('1')}
+      <Title>Users list</Title>
+      <FlatList
+        data={users}
+        numColumns={2}
+        renderItem={({item}) => {
+          return (
+            <CardWrapper style={{width: cardWidth, margin: CARD_MARGIN}}>
+              <CardIcon name="user-circle-o" size={40} color="#007ab9" />
+              <CardTitle>{item.name}</CardTitle>
+              <CardEmail>{item.email}</CardEmail>
+              <CardButton onPress={() => handleUserClick(item.id.toString())}>
+                <CardButtonText>More</CardButtonText>
+              </CardButton>
+            </CardWrapper>
+          );
+        }}
+        keyExtractor={item => item.id.toString()}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
       />
     </Container>
   );
