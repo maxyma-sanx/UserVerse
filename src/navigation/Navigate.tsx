@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 
-import {BottomMenu, HeaderMenu, Home, User} from '../ui';
+import {BottomMenu, HeaderMenu, Home, Overlay, User} from '../ui';
 import {Stack} from '../utils';
 
 const Navigate: FC = () => {
@@ -21,6 +21,7 @@ const Navigate: FC = () => {
         />
       </Stack.Navigator>
       <BottomMenu />
+      <Overlay />
     </NavigationContainer>
   );
 };

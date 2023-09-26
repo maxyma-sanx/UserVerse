@@ -12,7 +12,6 @@ import {
   CardIcon,
   CardTitle,
   CardWrapper,
-  Container,
   Title,
 } from './Home.styled';
 
@@ -20,11 +19,10 @@ import {NavigationProp} from '@/types/NavigationProp';
 
 import {getUsers} from '../../../redux/users/selector';
 import {CARD_MARGIN, NUM_COLUMNS} from '../../../constants';
+import {Container} from '../../components';
 
 const Home: FC = () => {
   const users = useAppSelector(getUsers);
-  // const loading = useAppSelector(getUsersLoading);
-  // const error = useAppSelector(getUsersError);
   const navigation = useNavigation<NavigationProp>();
   const dispatch = useAppDispatch();
 

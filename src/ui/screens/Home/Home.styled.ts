@@ -1,21 +1,9 @@
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export const Container = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-
-  border: 3px solid ${({theme}) => theme.colors.black};
-  border-left-width: 0;
-  border-right-width: 0;
-  background-color: ${({theme}) => theme.colors.white};
-`;
-
 export const Title = styled.Text`
   margin-bottom: 10px;
+  margin-left: 5px;
   font-family: 'Karla-Bold';
   font-size: ${({theme}) => theme.fontSizes.xlarge};
   color: ${({theme}) => theme.colors.black};
