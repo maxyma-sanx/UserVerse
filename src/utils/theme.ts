@@ -13,5 +13,6 @@ export const theme = {
     medium: '16px',
     large: '20px',
     xlarge: '24px',
+    xxLarge: '28px',
   },
 };

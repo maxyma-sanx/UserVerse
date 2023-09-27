@@ -5,7 +5,7 @@ export const Title = styled.Text`
   margin-bottom: 10px;
   margin-left: 5px;
   font-family: 'Karla-Bold';
-  font-size: ${({theme}) => theme.fontSizes.xlarge};
+  font-size: ${({theme}) => theme.fontSizes.xxLarge};
   color: ${({theme}) => theme.colors.black};
 `;
 
@@ -43,6 +43,7 @@ export const CardEmail = styled.Text`
 export const CardButton = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
+  width: 100%;
   padding: 10px 40px;
   border-radius: 10px;
   background-color: ${({theme}) => theme.colors.accent};
